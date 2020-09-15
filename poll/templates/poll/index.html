@@ -1,0 +1,21 @@
+{% load static %}
+
+<link rel="stylesheet" type='text/css' href="{% static 'poll/stylesheet.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+</head>
+<body>
+    {% if recent_questions %}
+        {% for question in recent_questions %}
+            <ul>
+                <li><a href="{% url 'poll:detail' question.id %}">Question {{question.id}}</a></li>
+            </ul>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
